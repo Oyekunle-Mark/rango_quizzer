@@ -29,6 +29,8 @@ class QuizBrain {
         true),
   ];
 
-  String getQuestion(int questionNumber) =>
+  String getQuestionText(int questionNumber) =>
       _questionBank[questionNumber].questionText;
+
+  bool getAnswer(int questionNumber) => _questionBank[questionNumber].answer;
 }
