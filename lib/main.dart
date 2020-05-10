@@ -42,7 +42,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.getQuestionText(questionNumber),
+                quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -66,7 +66,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnswer = quizBrain.getAnswer(questionNumber);
+                bool correctAnswer = quizBrain.getAnswer();
 
                 if (correctAnswer == true) {
                   print("Correct answer.");
@@ -76,7 +76,7 @@ class _QuizPageState extends State<QuizPage> {
 
                 //The user picked true.
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
@@ -95,7 +95,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnswer = quizBrain.getAnswer(questionNumber);
+                bool correctAnswer = quizBrain.getAnswer();
 
                 if (correctAnswer == false) {
                   print("Correct answer.");
@@ -105,7 +105,7 @@ class _QuizPageState extends State<QuizPage> {
 
                 //The user picked false.
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
