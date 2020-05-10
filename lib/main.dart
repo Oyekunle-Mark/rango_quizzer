@@ -108,7 +108,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 bool correctAnswer = questionBank[questionNumber].answer;
 
-                if (correctAnswer == true) {
+                if (correctAnswer == false) {
                   print("Correct answer.");
                 } else {
                   print("Wrong one, mate.");
