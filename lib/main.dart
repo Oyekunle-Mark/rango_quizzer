@@ -36,7 +36,7 @@ class _QuizPageState extends State<QuizPage> {
     if (quizBrain.isFinished()) {
       Alert(
               context: context,
-              title: "Quiz ended.",
+              title: "Finished!",
               desc: "Thank you for taking the quiz.")
           .show();
 
