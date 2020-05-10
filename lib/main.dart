@@ -30,17 +30,6 @@ class _QuizPageState extends State<QuizPage> {
 
   int questionNumber = 0;
 
-  List<Question> questionBank = [
-    Question(
-        questionText: 'You can lead a cow down stairs but not up stairs.',
-        answer: false),
-    Question(
-        questionText:
-            'Approximately one quarter of human bones are in the feet.',
-        answer: true),
-    Question(questionText: 'A slug\'s blood is green.', answer: true),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Column(
