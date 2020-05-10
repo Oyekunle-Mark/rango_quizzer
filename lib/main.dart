@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
 
-QuizBrain quizBrain = QuizBrain();
-
 void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
@@ -28,6 +26,7 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  QuizBrain quizBrain = QuizBrain();
   List<Icon> scoreKeeper = [];
 
   @override
