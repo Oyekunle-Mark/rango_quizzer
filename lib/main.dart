@@ -32,13 +32,19 @@ class _QuizPageState extends State<QuizPage> {
   void checkAnswer(bool userAnswer) {
     bool correctAnswer = quizBrain.getAnswer();
 
-    if (correctAnswer == userAnswer) {
-      print("Correct answer.");
-    } else {
-      print("Wrong one, mate.");
-    }
-
     setState(() {
+      if (correctAnswer == userAnswer) {
+        scoreKeeper.add(Icon(
+          Icons.check,
+          color: Colors.green,
+        ));
+      } else {
+        scoreKeeper.add(Icon(
+          Icons.close,
+          color: Colors.red,
+        ));
+      }
+
       quizBrain.nextQuestion();
     });
   }
@@ -103,7 +109,7 @@ class _QuizPageState extends State<QuizPage> {
           ),
         ),
         Row(
-          children: <Widget>[],
+          children: scoreKeeper,
         ),
       ],
     );
