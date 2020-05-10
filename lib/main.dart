@@ -33,21 +33,34 @@ class _QuizPageState extends State<QuizPage> {
   void checkAnswer(bool userAnswer) {
     bool correctAnswer = quizBrain.getAnswer();
 
-    setState(() {
-      if (correctAnswer == userAnswer) {
-        scoreKeeper.add(Icon(
-          Icons.check,
-          color: Colors.green,
-        ));
-      } else {
-        scoreKeeper.add(Icon(
-          Icons.close,
-          color: Colors.red,
-        ));
-      }
+    if (quizBrain.isFinished()) {
+      Alert(
+              context: context,
+              title: "Quiz ended.",
+              desc: "Thank you for taking the quiz.")
+          .show();
 
-      quizBrain.nextQuestion();
-    });
+      setState(() {
+        quizBrain.reset();
+        scoreKeeper.clear();
+      });
+    } else {
+      setState(() {
+        if (correctAnswer == userAnswer) {
+          scoreKeeper.add(Icon(
+            Icons.check,
+            color: Colors.green,
+          ));
+        } else {
+          scoreKeeper.add(Icon(
+            Icons.close,
+            color: Colors.red,
+          ));
+        }
+
+        quizBrain.nextQuestion();
+      });
+    }
   }
 
   @override
